@@ -100,7 +100,7 @@ macro "Initiate Multi Measurement Tool [o]" {
 						row = nResults;
 						setResult("Slice", row, slice);
 						setResult("Channel", row, channel);
-						for (object = 1; object < samples, object++) {
+						for (object = 1; object < samples; object++) {
 							setResult("Object " + object + " Signal", row, mean[(object - 1) * (samples - 1) + channel] - mean[(samples - 1) * (samples - 1) + channel]);
 						}
 						setResult("Background", row, mean[(samples - 1) * (samples - 1) + channel]);
