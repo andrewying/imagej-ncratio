@@ -1,19 +1,19 @@
 /*
-ImageJ N:C Ratio Calculator
-Copyright (C) 2017 Anfrew Ying.
+	ImageJ N:C Measurement
+	Copyright (C) 2017-2018 Anfrew Ying.
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 requires("1.30k");
@@ -84,6 +84,7 @@ macro "Initiate N:C Measurement Tool [o]" {
 					setResult("Slice", row, slice);
 					setResult("Cytoplasmic Signal", row, mean[1] - mean[0]);
 					setResult("Nuclear Signal", row, mean[2] - mean[0]);
+					setResult("Background Signal", row, mean[0]);
 					setResult("N:C Ratio", row, (mean[2] - mean[0]) / (mean[1] - mean[0]));
 					updateResults();
 					
@@ -128,6 +129,7 @@ macro "Make Measurement [m]" {
 	setResult("Slice", row, slice);
 	setResult("Cytoplasmic Signal", row, mean[1] - mean[0]);
 	setResult("Nuclear Signal", row, mean[2] - mean[0]);
+	setResult("Background Signal", row, mean[0]);
 	setResult("N:C Ratio", row, (mean[2] - mean[0]) / (mean[1] - mean[0]));
 	updateResults();
 }
